@@ -69,8 +69,5 @@ func (c *Conn) Stats() (map[string]interface{}, error) {
 	if err != nil {
 		return map[string]interface{}{}, err
 	}
-	// TODO: parse info into JSON
-	return Stats{
-		"Info": info,
-	}, nil
+	return parseRedisInfo(info)
 }
