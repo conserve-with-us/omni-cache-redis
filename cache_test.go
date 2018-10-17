@@ -1,7 +1,6 @@
 package rediscache
 
 import (
-	"fmt"
 	"os"
 	"testing"
 	"time"
@@ -98,6 +97,5 @@ func TestStats(t *testing.T) {
 
 	s, err := conn.Stats()
 	assert.Nil(t, err)
-	fmt.Println(len(s))
-	assert.True(t, len(s) > 0)
+	assert.NotEqual(t, "", s["redis_version"])
 }
