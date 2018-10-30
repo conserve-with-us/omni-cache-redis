@@ -17,7 +17,7 @@ func TestNewCache(t *testing.T) {
 }
 
 func TestWrite(t *testing.T) {
-	c, err := NewCache(time.Second)
+	c, err := NewCache(500 * time.Millisecond)
 	assert.Nil(t, err)
 	conn, err := c.Open(os.Getenv("REDIS_URL"))
 	assert.Nil(t, err)
@@ -42,7 +42,7 @@ func TestWrite(t *testing.T) {
 }
 
 func TestWriteTTL(t *testing.T) {
-	c, err := NewCache(time.Second)
+	c, err := NewCache(time.Millisecond)
 	assert.Nil(t, err)
 	conn, err := c.Open(os.Getenv("REDIS_URL"))
 	assert.Nil(t, err)
@@ -52,7 +52,7 @@ func TestWriteTTL(t *testing.T) {
 
 	// cache miss
 	b := []byte{1, 2, 3}
-	err = conn.WriteTTL(key, b, time.Second)
+	err = conn.WriteTTL(key, b, 500*time.Millisecond)
 	assert.Nil(t, err)
 
 	// cache hit
