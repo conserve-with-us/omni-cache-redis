@@ -1,6 +1,7 @@
-# Local Cache Redis
+# OmniCache Redis
 
-A [local cache](https://github.com/panoplymedia/local-cache) with [Redis](https://redis.io/) as the underlying data store.
+A [Redis](https://redis.io/) persistence layer for [omni-cache](https://github.com/panoplymedia/omni-cache).
+# Local Cache Redis
 
 ### Sample Usage
 
